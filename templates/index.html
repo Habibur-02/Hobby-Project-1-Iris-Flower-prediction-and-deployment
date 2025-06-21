@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iris Flower Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background: #f2f2f2;
+            color: #333;
+        }
+        .container {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            width: 100%;
+            background: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: #e0f7fa;
+            border-radius: 5px;
+            text-align: center;
+        }
+        h1, p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Iris Flower Prediction</h1>
+        <p>Enter the 4 features of the flower to predict its species (Setosa, Versicolor, Virginica).</p>
+
+        <form method="POST">
+            <label>Sepal Length (cm):</label>
+            <input type="number" step="any" name="sepal_length" required>
+
+            <label>Sepal Width (cm):</label>
+            <input type="number" step="any" name="sepal_width" required>
+
+            <label>Petal Length (cm):</label>
+            <input type="number" step="any" name="petal_length" required>
+
+            <label>Petal Width (cm):</label>
+            <input type="number" step="any" name="petal_width" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h3>Predicted Species:</h3>
+            <strong>{{ prediction }}</strong>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
